@@ -1,5 +1,6 @@
 package com.benigumo.erv
 
+import android.graphics.Color
 import android.support.v7.widget.RecyclerView.ViewHolder
 import android.view.View
 import android.view.View.OnClickListener
@@ -28,6 +29,7 @@ class ItemViewHolder(
 
     name.text = item.name
     age.text = item.age.toString()
+    root.setBackgroundColor(Color.parseColor(item.color))
   }
 
   override fun onClick(view: View) {

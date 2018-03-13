@@ -12,7 +12,7 @@ class CustomRecyclerView @JvmOverloads constructor(
 ) : RecyclerView(context, attrs, defStyleAttr) {
 
   init {
-    layoutManager = GridLayoutManager(context, 2)
+    layoutManager = GridLayoutManager(context, 3)
   }
 
 }

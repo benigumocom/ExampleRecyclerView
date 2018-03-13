@@ -10,7 +10,7 @@ class ItemAdapter(
     private val callback: Callback
 ) : RecyclerView.Adapter<ItemViewHolder>() {
 
-  var items: List<Item> = emptyList()
+  private var items: List<Item> = emptyList()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
     val view = inflater.inflate(R.layout.item, parent, false)
