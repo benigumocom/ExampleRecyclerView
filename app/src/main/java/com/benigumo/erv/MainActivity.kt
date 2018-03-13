@@ -1,7 +1,7 @@
 package com.benigumo.erv
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.util.DiffUtil
 import com.benigumo.erv.model.Item
 import kotlinx.android.synthetic.main.activity_main.recycler_view
@@ -31,18 +31,19 @@ class MainActivity : AppCompatActivity() {
   private fun loadItems() {
 
     // todo async
-    val items: MutableList<Item> = mutableListOf()
-    for (i in 0..50) {
+    val newItems: MutableList<Item> = mutableListOf()
+    for (i in 0..5000) {
       val item = Item(
           System.currentTimeMillis().toInt(),
           "Name $i",
           i * 3
       )
-      items.add(item)
+      newItems.add(item)
     }
 
-    adapter.updateItems(items)
-    val result = DiffUtil.calculateDiff(DiffUtilCallback(adapter.items, items))
+    val oldItems = adapter.items
+    adapter.updateItems(newItems)
+    val result = DiffUtil.calculateDiff(DiffUtilCallback(oldItems, newItems))
     result.dispatchUpdatesTo(adapter)
 
   }
