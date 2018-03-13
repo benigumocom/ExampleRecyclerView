@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
   private fun loadItems() = launch(UI) {
 
     while (true) {
-      val newItems = loadFromRemote(items).await()
+      val newItems = loadFromRemoteFake(items).await()
       val result = async(CommonPool) {
         DiffUtil.calculateDiff(DiffUtilCallback(items, newItems))
       }.await()
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
     }
   }
 
-  private fun loadFromRemote(items: List<Item>) = async(CommonPool) {
+  private fun loadFromRemoteFake(items: List<Item>) = async(CommonPool) {
 
     delay(3, SECONDS)
 
