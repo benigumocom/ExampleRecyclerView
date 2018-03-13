@@ -12,7 +12,7 @@ class ItemAdapter(
 
   var items: List<Item> = emptyList()
 
-  override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ItemViewHolder {
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
     val view = inflater.inflate(R.layout.item, parent, false)
     return ItemViewHolder(view, callback)
   }
