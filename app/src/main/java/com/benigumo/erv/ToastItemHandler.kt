@@ -11,5 +11,4 @@ internal class ToastItemHandler(
   override fun invoke(item: Item) {
     Toast.makeText(context, "$item", Toast.LENGTH_SHORT).show()
   }
-
 }

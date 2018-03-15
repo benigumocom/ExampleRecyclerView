@@ -39,5 +39,4 @@ class ItemViewHolder(
       else -> throw IllegalArgumentException("wrong view clicked!")
     }
   }
-
 }

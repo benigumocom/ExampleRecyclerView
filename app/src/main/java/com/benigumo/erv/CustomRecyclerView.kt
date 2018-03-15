@@ -17,7 +17,5 @@ class CustomRecyclerView @JvmOverloads constructor(
       // https://stackoverflow.com/a/33985508
       override fun supportsPredictiveItemAnimations() = false
     }
-
   }
-
 }
