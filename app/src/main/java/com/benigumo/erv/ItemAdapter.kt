@@ -40,6 +40,7 @@ class ItemAdapter(
 
   interface Callback {
     fun onItemClicked(item: Item)
-    fun onButtonClicked(item: Item)
+    fun onDeleteClicked(item: Item)
+    fun onShareClicked(item: Item)
   }
 }

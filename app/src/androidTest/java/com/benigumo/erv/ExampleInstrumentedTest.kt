@@ -24,7 +24,7 @@ class ExampleInstrumentedTest {
   fun loadItems() {
     val remoteRepository = RemoteRepository()
     val job = launch(UI) {
-      val items = remoteRepository.loadItems().await()
+      val items = remoteRepository.load().await()
       println(items)
       assertTrue(items.isNotEmpty())
     }

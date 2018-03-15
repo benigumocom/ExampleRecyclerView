@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit.SECONDS
 
 class RemoteRepository {
 
-  private val items: MutableList<Item> = mutableListOf()
+  private var items: MutableList<Item> = mutableListOf()
 
   init {
     val cs = "0123456789ABCDEF".toCharArray().toList()
@@ -22,9 +22,15 @@ class RemoteRepository {
     }
   }
 
-  fun loadItems(): Deferred<List<Item>> = async(CommonPool) {
-    delay(3, SECONDS)
-    items.shuffled()
+  fun load(shuffle: Boolean): Deferred<List<Item>> = async(CommonPool) {
+    if (shuffle) items.shuffle()
+    delay(5, SECONDS)
+    println("size : ${items.size}")
+    items.toList()
+  }
+
+  fun remove(item: Item) {
+    items.remove(item)
   }
 
   private fun log(message: String = "") {
