@@ -6,12 +6,12 @@ buildscript {
       'versionCode': 1,
       'versionName': '1',
       'compileSdk': 27,
+      'targetSdk': 27,
       'minSdk': 24,
-      'targetSdk': 27
+      'buildTool': '3.0.1'
   ]
 
   ext.versions = [
-      'buildTool': '3.0.1',
       'kotlin': '1.2.30',
       'supportLibrary': '27.1.0'
   ]
@@ -21,7 +21,7 @@ buildscript {
     jcenter()
   }
   dependencies {
-    classpath "com.android.tools.build:gradle:${versions.buildTool}"
+    classpath "com.android.tools.build:gradle:${buildConfig.buildTool}"
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
   }
 }

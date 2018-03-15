@@ -12,7 +12,12 @@ class CustomRecyclerView @JvmOverloads constructor(
 ) : RecyclerView(context, attrs, defStyleAttr) {
 
   init {
-    layoutManager = GridLayoutManager(context, 3)
+    layoutManager = object : GridLayoutManager(context, 3) {
+
+      // https://stackoverflow.com/a/33985508
+      override fun supportsPredictiveItemAnimations() = false
+    }
+
   }
 
 }
