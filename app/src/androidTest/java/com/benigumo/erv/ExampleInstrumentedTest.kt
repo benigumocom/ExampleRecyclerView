@@ -15,7 +15,6 @@ class ExampleInstrumentedTest {
 
   @Test
   fun useAppContext() {
-    // Context of the app under test.
     val appContext = InstrumentationRegistry.getTargetContext()
     assertEquals("com.benigumo.erv", appContext.packageName)
   }
@@ -24,7 +23,7 @@ class ExampleInstrumentedTest {
   fun loadItems() {
     val remoteRepository = RemoteRepository()
     val job = launch(UI) {
-      val items = remoteRepository.load().await()
+      val items = remoteRepository.load(true).await()
       println(items)
       assertTrue(items.isNotEmpty())
     }

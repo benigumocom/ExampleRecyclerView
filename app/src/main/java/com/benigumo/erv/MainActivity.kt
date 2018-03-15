@@ -1,6 +1,7 @@
 package com.benigumo.erv
 
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.util.DiffUtil
 import com.benigumo.erv.data.RemoteRepository
@@ -25,16 +26,16 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
 
     val onToast = ToastItemHandler(this)
-    val onDelete = DeleteItemHandler(this, remoteRepository)
+    val onDelete = DeleteItemHandler(remoteRepository)
     val onShare = ShareItemHandler(this)
 
     val callback = object : ItemAdapter.Callback {
       override fun onItemClicked(item: Item) = onToast(item)
       override fun onDeleteClicked(item: Item) {
         onDelete(item)
+        showMessage("DELETE", item)
         load(false)
       }
-
       override fun onShareClicked(item: Item) = onShare(item)
     }
     adapter = ItemAdapter(layoutInflater, callback)
@@ -73,5 +74,10 @@ class MainActivity : AppCompatActivity() {
 
       items = newItems
     }
+  }
+
+  private fun showMessage(action: String, item: Item) {
+    val text = "$action : ${item.name} - ${item.age}"
+    Snackbar.make(recycler_view, text, Snackbar.LENGTH_SHORT).show()
   }
 }
